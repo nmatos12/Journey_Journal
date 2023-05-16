@@ -11,3 +11,362 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/* styling - kim added today*/
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  text-align: left;
+}
+
+.icon-bar {
+  width: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;    
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-size: 26px;
+}
+
+/* .icon-bar a:hover {
+  background-color: pink;
+} */
+
+.navbar {
+  width: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;    
+  text-align: center;
+  padding: 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* .navbar a:hover {
+background-color: pink; 
+} */
+
+@media screen and (max-width: 500px) {
+  .navbar a,
+  .icon-bar a {
+      float: none;
+      display: block;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  margin-left: 15vw;
+}
+
+.scroll-container {
+  /* background-color: black; */
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  height: 200px;
+  display: flex;
+}
+
+.image-container {
+  /* width: 150px;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  height: auto; */
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+.projectImage {
+  width: 200px;
+  height: 200px;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  border-radius: 20%
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.myPortfolio {
+  text-align: center;
+}
+
+
+/* login form section */
+* {box-sizing: border-box}
+
+/* style the container */
+.container {
+position: relative;
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px 0 30px 0;
+} 
+
+/* style inputs and link buttons */
+input,
+.btn {
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 4px;
+margin: 5px 0;
+opacity: 0.85;
+display: inline-block;
+font-size: 17px;
+line-height: 20px;
+text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+background-color: #3B5998;
+color: white;
+}
+
+.twitter {
+background-color: #55ACEE;
+color: white;
+}
+
+.google {
+background-color: #dd4b39;
+color: white;
+}
+
+/* .instagram {
+background-color: #E1306C;
+color: white;
+} */
+
+/* style the submit button */
+input[type=submit] {
+background-color: #04AA6D;
+color: white;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+float: left;
+width: 50%;
+margin: auto;
+padding: 0 50px;
+margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* vertical line */
+.vl {
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+border: 2px solid #ddd;
+height: 175px;
+}
+
+/* text inside the vertical line */
+.inner {
+position: absolute;
+top: 50%;
+transform: translate(-50%, -50%);
+background-color: #f1f1f1;
+border: 1px solid #ccc;
+border-radius: 50%;
+padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+display: none;
+}
+
+/* bottom container */
+.bottom-container {
+text-align: center;
+background-color: #666;
+border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+.col {
+  width: 100%;
+  margin-top: 0;
+}
+/* hide the vertical line */
+.vl {
+  display: none;
+}
+/* show the hidden text on small screens */
+.hide-md-lg {
+  display: block;
+  text-align: center;
+}
+}
+
+/* register form section */
+/* Add padding to containers */
+.register_container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+
+
+/* gallery section */
+
+/* body {
+background-color: #f1f1f1;
+padding: 20px;
+font-family: Arial;
+} */
+
+/* Center website */
+.main {
+max-width: 1000px;
+margin: auto;
+}
+
+h1 {
+font-size: 50px;
+word-break: break-all;
+}
+
+.gallery-row {
+margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.gallery-row,
+.gallery-row > .gallery-column {
+padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.gallery-column {
+float: left;
+width: 25%;
+}
+
+/* Clear floats after rows */ 
+.gallery-row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Content */
+.gallery-content {
+background-color: white;
+padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+.gallery-column {
+  width: 50%;
+}
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+.gallery-column {
+  width: 100%;
+}
+}

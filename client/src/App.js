@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Home } from "./components/Home"; // Assuming you have a Home component
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import axios from 'axios';
+// import logo from './logo.svg';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home"; // Assuming you have a Home component
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
-  const [homepage, setHomepage] = useState("home");
-
-  function renderPage() {
-    switch (homepage) {
-      case "home":
-        return <Home />;
-      // Add cases for other pages (login, registration, etc.) here
-      default:
-        return <Home />; // Default to the home page
-    }
-  }
-
+  const [user, setUser]=useState(null)
+  useEffect(() => {
+    axios.get('/auth/authenticated')
+    .then((res) => {
+      setUser(res.data.user)
+    })
+  }, [])
   return (
     <div>
       <Navbar />
-      <Header />
-      {renderPage()}
+      <Routes>
+        <Route path='/' element={<Home user={user}/>}/>
+        <Route path='/login' element={<Login setUser={setUser}/>}/>
+        <Route path='/sign-up' element={<Register setUser={setUser}/>}/>
+      </Routes>
       <Footer />
     </div>
   );

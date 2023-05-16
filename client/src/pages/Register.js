@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { redirect } from 'react-router-dom';
 
 function Register(props) {
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ function Register(props) {
 
       props.setUser(res.data.user);
       setErrorMessage('');
+      redirect('/');
     } catch (err) {
       const message = err.response.data.error;
 

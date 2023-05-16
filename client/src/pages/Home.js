@@ -1,23 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
-const Landing = () => {
+const Home = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://api.example.com/data');
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
-    fetchData();
   }, []);
 
-  if (isAuthenticated) {
+  if (props.user) {
     return (
       <>
         <div>
@@ -35,26 +27,26 @@ const Landing = () => {
       <>
         <div className="text-center">
           <h1 className="home-title mt-4 mb-3">Welcome to the Journey Journal App!</h1>
-          <Button
+          <NavLink
             className="button m-2"
-            href="/login"
+            to="/login"
             size="lg"
             style={{ width: "20%" }}
           >
             Login
-          </Button>
-          <Button
+          </NavLink>
+          <NavLink
             className="button m-2"
-            href="/signup"
+            to="/sign-up"
             size="lg"
             style={{ width: "20%" }}
           >
             Sign Up
-          </Button>
+          </NavLink>
         </div>
       </>
     );
   }
 }
 
-export default Landing;
+export default Home;

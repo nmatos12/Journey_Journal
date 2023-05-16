@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/User');
+const Vacation = require('../models/Vacation');
 
 // http://localhost:3333/auth/register
 // Register User

@@ -1,8 +1,8 @@
-# Journey_Journal
+# **Journey_Journal**
 
 ## Description
 
-This is a travel application
+### _This is a travel application_
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This is a travel application
 
 ## Installation
 
-To install dependencies, run 'npm i' in the terminal.
+To install dependencies, run `'npm i'` in the terminal.
 
 ## Usage
 
@@ -30,12 +30,14 @@ To install dependencies, run 'npm i' in the terminal.
 - [Deployed Heroku Application]()
 
 ## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- MIT Lisense
+-  _MIT Lisense_
+
 
 ## About
 
-- This application was created by students of Rutgers Full-Stack Coding Bootcamp.
+#### This application was created by students of Rutgers Full-Stack Coding Bootcamp.
 
 - You can find Kimberlie Guillaume's work at their [Github](https://github.com/kimberlie901).
 - You can find Skye Heredia's work at their [Github](https://github.com/skye143).

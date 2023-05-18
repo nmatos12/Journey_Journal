@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import axios from "axios";
 // import logo from './logo.svg';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home"; // Assuming you have a Home component
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Hotel from "./pages/Hotel";
 
 function App() {
-  const [user, setUser]=useState(null)
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    axios.get('/auth/authenticated')
-    .then((res) => {
-      setUser(res.data.user)
-    })
-  }, [])
+    axios.get("/auth/authenticated").then((res) => {
+      setUser(res.data.user);
+    });
+  }, []);
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home user={user}/>}/>
-        <Route path='/login' element={<Login setUser={setUser}/>}/>
-        <Route path='/sign-up' element={<Register setUser={setUser}/>}/>
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/sign-up" element={<Register setUser={setUser} />} />
+        <Route path="/hotel" element={<Hotel />} />
       </Routes>
       <Footer />
     </div>
@@ -30,24 +31,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -62,8 +45,8 @@ export default App;
 //       switch (homepage) {
 //         case "home":
 //           return <Home/>
-        
-//         // add in button for login page and registration 
+
+//         // add in button for login page and registration
 //       }
 //     }
 //   );

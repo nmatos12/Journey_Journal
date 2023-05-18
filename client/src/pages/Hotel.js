@@ -97,4 +97,63 @@ const Hotel = () => {
   );
 };
 
+
+/** dashboard where the map goes and the searches - kim */
+
+<div>
+  {/*Header with logo and name */}
+  <header className="hero is-small">
+    <div className="hero-body">
+      <img src="./images/travel-journey-transparent.png" className="has-text-light has-text-centered is-size-3" />
+    </div>
+  </header>
+  {/*Seach bar*/}
+  <form className="box" autoComplete="off">
+    <div className="field">
+      {/*Search instructions*/}
+      <label className="label">Enter Your Starting Area Code Below:</label>
+      <div className="control autocomplete">
+        {/*Insert text here*/}
+        <input id="myInput" className="place-search-input" type="text" placeholder="Search Box" />
+        {/*The search button*/}
+        <button className="button is-small is-responsive searchBtn">Search</button>
+      </div>
+    </div>  
+  </form>
+  {/* Tile outline for business locations */}
+  <div className="tile is-ancestor">
+    <div id="options" className=" tile is-4 is-vertical is-parent">
+      <div id="option1" className="option tile is-child box">
+        <p id="placeName1" className="title">Hotel</p>
+        <p id="address1">Address:</p>
+        <p id="phone1">Phone:</p>
+      </div>
+      <div id="option2" className="option tile is-child box">
+        <p id="placeName2" className="title">Hotel</p>
+        <p id="address2">Address:</p>
+        <p id="phone2">Phone:</p>
+      </div>
+      <div id="option3" className="option tile is-child box">
+        <p id="placeName3" className="title">Hotel</p>
+        <p id="address3">Address:</p>
+        <p id="phone3">Phone:</p>
+      </div>
+      <div id="option4" className="option tile is-child box">
+        <p id="placeName4" className="title">Hotel</p>
+        <p id="address4">Address:</p>
+        <p id="phone4">Phone:</p>
+      </div>
+    </div>
+    {/*The Map Element*/}
+    <div className="tile is-parent">
+      <div id="map" className="is-child" />
+    </div>
+    {/*Listed route time*/}
+    <p id="time" /><p>
+    </p></div>
+</div>
+
+
+
+
 export default Hotel;

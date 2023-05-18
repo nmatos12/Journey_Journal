@@ -35,14 +35,41 @@ const Home = (props) => {
             </div>
           </header>
           <section id="center">
-            <h4> Welcome to Journey Journal </h4>
-            <h5> A place to start your vacation dreams </h5>
-            <img className="logo" src="./images/travel-journey-transparent.png" alt="Journey Journal" />
-            jalkdjfaldkjlfajdfasd
-            adlfjkaldskjfasdljkf
-            alksdjfalskdjfa'sd
-            alskdfjalsdkjflaskdjf
-            alkdfjalsdkjfasldkjfdslkjf
+            <div>
+              <h1> Welcome to Journey Journal! </h1>
+              <h2> A place to start your vacation dreams! </h2>
+              <img className="logo" src="./images/travel-journey-transparent.png" alt="Journey Journal" />
+              {/* slideshow container */}
+              <div className="slideshow-container">
+                {/* full-width slides and quotes */}
+                <div className="mySlides">
+                  <q> Journey Journal offers convenient trip planning with a one-stop solution for booking flights, hotels, and more. </q>
+                </div>
+                <div className="mySlides ">
+                  <q> Get competitive pricing and access to the best deals for flights, hotels, and travel services. </q>
+                </div>
+                <div className="mySlides">
+                  <q> Enjoy pesonalized recommendations based on your preferences and interests for a tailored travel experience. </q>
+                </div>
+                <div className="mySlides">
+                  <q> Seamlessly integrate all your travel needs, including bookings, rentails, and local attractions, within our app. </q>
+                </div>
+                <div className="mySlides">
+                  <q> Stay informed with real-time updates and 24/7 assistance for a stress-free and smooth travel experience </q>
+                </div>
+                {/* next and previous buttons */}
+                <a className="prev" onclick="plusSlides(-1)">❮</a>
+                <a className="next" onclick="plusSlides(1)">❯</a>
+              </div>
+              {/* dots/bullets/indicators */}
+              <div className="dot-container">
+                <span className="dot" onclick="currentSlide(1)" />
+                <span className="dot" onclick="currentSlide(2)" />
+                <span className="dot" onclick="currentSlide(3)" />
+                <span className="dot" onclick="currentSlide(4)" />
+                <span className="dot" onclick="currentSlide(5)" />
+              </div>
+            </div>
           </section>
           <section>
             <div className="scroll-container">
@@ -94,3 +121,32 @@ const Home = (props) => {
 }
 
 export default Home;
+
+
+// javascript for home page that goes for the slideshow of quotes 
+
+{/* <div>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  function plusSlides(n) {'{'}
+  showSlides(slideIndex += n);
+  {'}'}
+  function currentSlide(n) {'{'}
+  showSlides(slideIndex = n);
+  {'}'}
+  function showSlides(n) {'{'}
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n &gt; slides.length) {'{'} slideIndex = 1 {'}'}
+  if (n &lt; 1) {'{'} slideIndex = slides.length {'}'}
+  for (i = 0; i &lt; slides.length; i++) {'{'}
+  slides[i].style.display = "none";
+  {'}'}
+  for (i = 0; i &lt; dots.length; i++) {'{'}
+  dots[i].className = dots[i].className.replace(" active", "");
+  {'}'}
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+  {'}'}
+</div> */}

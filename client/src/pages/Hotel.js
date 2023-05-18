@@ -1,92 +1,100 @@
-import React, { useEffect, useState } from "react";
-// import ReactDOM from "react-dom";
-import { Loader } from "@googlemaps/js-api-loader";
+import React, { useState, useEffect } from "react";
+import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 
-// import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+const Hotel = () => {
+  const [places, setPlaces] = useState([]);
+  const [activeMarker, setActiveMarker] = useState(null);
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  const [zip, setZip] = useState("");
+  const [location, setLocation] = useState({ lat: 39.833851, lng: -74.871826 }); // San Francisco location
 
-function MapComponent() {
-  // manage the state of the searchbar and build a form handler to modify the values passed into the mapper
-  const loader = new Loader({
-    apiKey: "AIzaSyBqnazI9Eyf284BuR6qjVxkJ6SzCO3ZG4s",
-    version: "weekly",
-  });
-  const [filterText, setFilterText] = useState("");
-  loader.load().then(() => {
-    const Map = window.google.maps.Map;
-    //use the zip code to get lat and longitude and then pass in below
-    let map = new Map(document.getElementById("map"), {
-      center: { lat: 36.174, lng: -86.767 },
-      zoom: 8,
+  useEffect(() => {
+    const service = new window.google.maps.places.PlacesService(
+      document.createElement("div")
+    );
+    const request = {
+      location,
+      radius: 10000,
+      type: ["lodging"],
+    };
+
+    service.nearbySearch(request, (results, status) => {
+      if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+        setPlaces(results);
+      }
     });
-  });
+  }, [location]);
+
+  const onMarkerClick = ({ place, marker }) => {
+    setSelectedPlace(place);
+    setActiveMarker(marker);
+    setShowingInfoWindow(true);
+  };
+
+  const onClose = () => {
+    if (showingInfoWindow) {
+      setActiveMarker(null);
+      setShowingInfoWindow(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({ address: zip }, (results, status) => {
+      if (status === window.google.maps.GeocoderStatus.OK) {
+        setLocation({
+          lat: results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng(),
+        });
+        setZip("");
+      }
+    });
+  };
+
+  const handleZipChange = (e) => {
+    setZip(e.target.value);
+  };
+
   return (
     <>
-      <SearchBar setFilterText={setFilterText} filterText={filterText} />
-      <div id="map" style={{ height: "50vh" }}></div>;
+      <form onSubmit={handleSubmit}>
+        <label>
+          Zip Code:
+          <input type="text" value={zip} onChange={handleZipChange} />
+        </label>
+        <br />
+        <button type="submit">Search</button>
+      </form>
+      <GoogleMap center={location} zoom={10} mapContainerClassName="map">
+        {places.map((place) => (
+          <Marker
+            key={place.place_id}
+            position={{
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+            }}
+            onClick={(e) => onMarkerClick({ place: place, marker: e })}
+          />
+        ))}
+        {activeMarker && (
+          <InfoWindow
+            position={{
+              lat: activeMarker.latLng.lat(),
+              lng: activeMarker.latLng.lng(),
+            }}
+            onCloseClick={onClose}
+          >
+            <div>
+              <h3>{selectedPlace && selectedPlace.name}</h3>
+              <p>{selectedPlace && selectedPlace.vicinity}</p>
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
     </>
   );
-}
+};
 
-export default MapComponent;
-
-function SearchBar({ filterText, setFilterText }) {
-  return (
-    <form>
-      <input
-        onChange={(e) => setFilterText(e.target.value)}
-        type="text"
-        value={filterText}
-        placeholder="Search..."
-      />
-    </form>
-  );
-}
-// this function above did not error, but nothing shows up on screen
-
-// // import { useState, useEffect } from "react";
-// // import axios from "axios";
-// // import { NavLink } from "react-router-dom";
-
-// const Hotel = () => {
-//   var map;
-//   var service;
-//   var infowindow;
-
-//   function initialize() {
-//     var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
-
-//     map = new google.maps.Map(document.getElementById("map"), {
-//       center: pyrmont,
-//       zoom: 15,
-//     });
-
-//     var request = {
-//       location: pyrmont,
-//       radius: "500",
-//       query: "lodging",
-//     };
-
-//     service = new google.maps.places.PlacesService(map);
-//     service.textSearch(request, callback);
-//   }
-
-//   function callback(results, status) {
-//     if (status == google.maps.places.PlacesServiceStatus.OK) {
-//       for (var i = 0; i < results.length; i++) {
-//         var place = results[i];
-//         createMarker(results[i]);
-//       }
-//     }
-//   }
-//   fetch(
-//     "https://maps.googleapis.com/maps/api/js?key=AIzaSyBqnazI9Eyf284BuR6qjVxkJ6SzCO3ZG4s&libraries=places"
-//   );
-//   return (
-//     <>
-//       <div id="map"></div>
-//     </>
-//   );
-// };
-
-// export default Hotel;
-// ____________________________________-
+export default Hotel;

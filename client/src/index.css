@@ -12,7 +12,170 @@ code {
     monospace;
 }
 
+
 /* login page */
+
+/* home page */
+
+* {
+  background-color: rgb(254, 245, 234);
+}
+
+img {
+  width: 15vw;
+  display: block;
+  float: left;
+  margin-left: 0;
+  margin-right: 10px;
+  border-radius: 20%
+}
+
+/* nav bar*/
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.navbar a {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/*footer*/
+.icon-bar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.icon-bar a {
+  flex: 1;    
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.icon-bar a:hover {
+  background-color: rgb(187, 229, 212);
+}
+
+.navbar a:hover {
+  background-color: rgb(187, 229, 212);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+section {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px ;
+}
+
+div.scroll-container {
+  background-color: rgb(254, 245, 234);
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  height: 200px;
+  display: flex;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+  font-style: italic;
+}
+
+.logo {
+  width: 25vw;
+  display: block;
+  float: left;
+  margin-left: 0;
+  margin-right: 10px;
+  border-radius: 20% 
+}
+
+/* quotes slideshow */
+.slideshow-container {
+  position: relative;
+  padding: 20px;
+  /* background-color: black; */
+  margin: 0 auto;
+  width: 40%;
+}
+
+.mySlides {
+  display: none;
+  padding: 140px;
+  text-align: center;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgb(187, 229, 212);
+    color: white;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/* .active,
+.dot:hover {
+    background-color: #717171;
+} */
+
+q {
+    font-style: italic;
+      font-size: 20px;
+}
+
 
 .map {
   width: 500px;

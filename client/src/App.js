@@ -21,8 +21,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home user={user}/>}/>
-        <Route path='/login' element={<Login setUser={setUser}/>}/>
-        <Route path='/sign-up' element={<Register setUser={setUser}/>}/>
+        <Route path='/login' element={!user?<Login setUser={setUser}/>:<Navigate to='/'/>}/>
+        <Route path='/sign-up' element={!user?<Register setUser={setUser}/>:<Navigate to='/'/>}/>
       </Routes>
       <Footer />
     </div>

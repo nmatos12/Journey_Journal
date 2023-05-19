@@ -49,6 +49,7 @@ function Register(props) {
           width="100px"
           height="100px"
         />
+
       </div>
 
       <div className="bg-img">

@@ -59,15 +59,11 @@ const Hotel = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Zip Code:
-          <input type="text" value={zip} onChange={handleZipChange} />
-        </label>
-        <br />
-        <button type="submit">Search</button>
-      </form>
-      <GoogleMap center={location} zoom={10} mapContainerClassName="map">
+      <GoogleMap
+        center={location}
+        zoom={10}
+        mapContainerClassName="map mapContainer"
+      >
         {places.map((place) => (
           <Marker
             key={place.place_id}
@@ -93,10 +89,26 @@ const Hotel = () => {
           </InfoWindow>
         )}
       </GoogleMap>
+
+      <form className="zipForm" onSubmit={handleSubmit}>
+        <label className="zipcode">
+          Enter Zip Code or Nearby Address of a Travel Destination:
+          <br />
+          <input
+            className="searchBox"
+            type="text"
+            value={zip}
+            onChange={handleZipChange}
+          />
+        </label>
+
+        <button className="searchBtn" type="submit">
+          Search Hotels
+        </button>
+      </form>
     </>
   );
 };
-
 
 /** dashboard where the map goes and the searches - kim */
 
@@ -104,7 +116,10 @@ const Hotel = () => {
   {/*Header with logo and name */}
   <header className="hero is-small">
     <div className="hero-body">
-      <img src="./images/travel-journey-transparent.png" className="has-text-light has-text-centered is-size-3" />
+      <img
+        src="./images/travel-journey-transparent.png"
+        className="has-text-light has-text-centered is-size-3"
+      />
     </div>
   </header>
   {/*Seach bar*/}
@@ -114,32 +129,47 @@ const Hotel = () => {
       <label className="label">Enter Your Starting Area Code Below:</label>
       <div className="control autocomplete">
         {/*Insert text here*/}
-        <input id="myInput" className="place-search-input" type="text" placeholder="Search Box" />
+        <input
+          id="myInput"
+          className="place-search-input"
+          type="text"
+          placeholder="Search Box"
+        />
         {/*The search button*/}
-        <button className="button is-small is-responsive searchBtn">Search</button>
+        <button className="button is-small is-responsive searchBtn">
+          Search
+        </button>
       </div>
-    </div>  
+    </div>
   </form>
   {/* Tile outline for business locations */}
   <div className="tile is-ancestor">
     <div id="options" className=" tile is-4 is-vertical is-parent">
       <div id="option1" className="option tile is-child box">
-        <p id="placeName1" className="title">Hotel</p>
+        <p id="placeName1" className="title">
+          Hotel
+        </p>
         <p id="address1">Address:</p>
         <p id="phone1">Phone:</p>
       </div>
       <div id="option2" className="option tile is-child box">
-        <p id="placeName2" className="title">Hotel</p>
+        <p id="placeName2" className="title">
+          Hotel
+        </p>
         <p id="address2">Address:</p>
         <p id="phone2">Phone:</p>
       </div>
       <div id="option3" className="option tile is-child box">
-        <p id="placeName3" className="title">Hotel</p>
+        <p id="placeName3" className="title">
+          Hotel
+        </p>
         <p id="address3">Address:</p>
         <p id="phone3">Phone:</p>
       </div>
       <div id="option4" className="option tile is-child box">
-        <p id="placeName4" className="title">Hotel</p>
+        <p id="placeName4" className="title">
+          Hotel
+        </p>
         <p id="address4">Address:</p>
         <p id="phone4">Phone:</p>
       </div>
@@ -149,11 +179,9 @@ const Hotel = () => {
       <div id="map" className="is-child" />
     </div>
     {/*Listed route time*/}
-    <p id="time" /><p>
-    </p></div>
-</div>
-
-
-
+    <p id="time" />
+    <p></p>
+  </div>
+</div>;
 
 export default Hotel;

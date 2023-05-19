@@ -6,8 +6,10 @@ function Navbar() {
         <header>
             <div className="navbar">
                 <NavLink to="/"><i className="fa fa-fw fa-home"></i>Home</NavLink>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/ourstory">Our Story</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
             </div>
         </header>
     )

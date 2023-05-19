@@ -26,14 +26,6 @@ const Home = (props) => {
     return (
       <>
         <div className="container">
-          <header>
-            <div className="navbar">
-              <a className="active" href="#"><i className="fa fa-fw fa-home" />Home</a>
-              <a href="#ourstory">Our Story</a>
-              <a href="#login">Login</a>
-              <a href="#signup">Sign Up</a>
-            </div>
-          </header>
           <section id="center">
             <h4> Welcome to Journey Journal </h4>
             <h5> A place to start your vacation dreams </h5>
@@ -69,25 +61,6 @@ const Home = (props) => {
             </div>
           </footer>
         </div>
-        {/* <div className="text-center">
-          <h1 className="home-title mt-4 mb-3">Welcome to the Journey Journal App!</h1>
-          <NavLink
-            className="button m-2"
-            to="/login"
-            size="lg"
-            style={{ width: "20%" }}
-          >
-            Login
-          </NavLink>
-          <NavLink
-            className="button m-2"
-            to="/sign-up"
-            size="lg"
-            style={{ width: "20%" }}
-          >
-            Sign Up
-          </NavLink>
-        </div> */}
       </>
     );
   }

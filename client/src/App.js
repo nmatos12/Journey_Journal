@@ -8,22 +8,25 @@ import Home from "./pages/Home"; // Assuming you have a Home component
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Hotel from "./pages/Hotel";
+import Ourstory from './pages/Ourstory';
 
 function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    axios.get("/auth/authenticated").then((res) => {
-      setUser(res.data.user);
-    });
-  }, []);
+    axios.get('/auth/authenticated')
+      .then((res) => {
+        setUser(res.data.user)
+      })
+  }, [])
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/sign-up" element={<Register setUser={setUser} />} />
-        <Route path="/hotel" element={<Hotel />} />
+        <Route path="/" element={<Home user={user}/>} />
+        <Route path="/login" element={!user ? <Login setUser={setUser} /> : <Navigate to='/'  />}  />
+        <Route path="/signup" element={!user ? <Register setUser={setUser} /> : <Navigate to='/'  />} />
+        <Route path="/hotel" element={<Hotel user={user}/>} />
+        <Route path='/ourstory' element={<Ourstory user={user}/>} />
       </Routes>
       <Footer />
     </div>
@@ -31,25 +34,3 @@ function App() {
 }
 
 export default App;
-
-// import logo from './logo.svg';
-// import './App.css';
-// import { Navbar } from "./components/Navbar";
-// import { Footer } from "./components/Footer";
-// import { Header } from "./components/Header";
-
-// function App() {
-//   return (
-//     const [homepage, setHomepage] = useState("home");
-//     function renderPage() {
-//       switch (homepage) {
-//         case "home":
-//           return <Home/>
-
-//         // add in button for login page and registration
-//       }
-//     }
-//   );
-// }
-
-// export default App;

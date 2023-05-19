@@ -19,12 +19,12 @@ router.post('/register', async (req, res) => {
 // Login User
 router.post('/login', async (req, res) => {
     const user = await User.findOne({
-        email: req.body.email
+        username: req.body.username
     }).populate({
         path: 'vacations',
         populate: 'user'
     });
-
+    console.log(user)
     // If no user is found, stop and send an error message
     if (!user) return res.status(402).send({ error: 'User with that email not found.' });
 

@@ -8,7 +8,6 @@ import Home from "./pages/Home"; // Assuming you have a Home component
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Hotel from "./pages/Hotel";
-import Contact from './pages/Contact';
 import Ourstory from './pages/Ourstory';
 
 function App() {
@@ -23,12 +22,11 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home user={user}  />}  />
+        <Route path="/" element={<Home user={user}/>} />
         <Route path="/login" element={!user ? <Login setUser={setUser} /> : <Navigate to='/'  />}  />
         <Route path="/signup" element={!user ? <Register setUser={setUser} /> : <Navigate to='/'  />} />
-        <Route path="/hotel" element={<Hotel />} />
+        <Route path="/hotel" element={<Hotel user={user}/>} />
         <Route path='/ourstory' element={<Ourstory user={user}/>} />
-        <Route path='/contact' element={<Contact user={user} />}  />
       </Routes>
       <Footer />
     </div>

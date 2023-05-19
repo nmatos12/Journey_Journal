@@ -37,29 +37,9 @@ function Register(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Register</h1>
+      <h1>Sign Up</h1>
 
       {errorMessage && <p className="error">{errorMessage}</p>}
-
-      <input
-        name="username"
-        onChange={handleInputChange}
-        value={formData.username}
-        type="text"
-        placeholder="Enter your desired username" />
-      <input
-        name="email"
-        onChange={handleInputChange}
-        value={formData.email}
-        type="email"
-        placeholder="Enter your desired email address" />
-      <input
-        name="password"
-        onChange={handleInputChange}
-        value={formData.password}
-        type="password"
-        placeholder="Enter your desired password" />
-      <button>Submit</button>
 
       <div className="bg-img">
         <label htmlFor="Username"><b>Username</b></label>

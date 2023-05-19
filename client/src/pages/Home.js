@@ -1,6 +1,40 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import SimpleImageSlider from "react-simple-image-slider";
+
+const images = [
+  {
+    url: "/images/review1.png"
+  },
+  {
+    url: "/images/review2.png"
+  },
+  {
+    url: "/images/review3.png"
+  },
+  {
+    url: "/images/review4.png"
+  },
+  {
+    url: "/images/review5.png"
+  },
+  {
+    url: "/images/review6.png"
+  },
+  {
+    url: "/images/review7.png"
+  },
+  {
+    url: "/images/review8.png"
+  },
+  {
+    url: "/images/review9.png"
+  },
+  {
+    url: "/images/review10.png"
+  },
+];
 
 const Home = (props) => {
   const [data, setData] = useState([]);
@@ -26,55 +60,24 @@ const Home = (props) => {
     return (
       <>
         <div className="container">
-          <section id="center">
-            <div>
-              <h1> Welcome to Journey Journal! </h1>
-              <h2> A place to start your vacation dreams! </h2>
+          <section id="center" className="column align-center">
+            <h1> Welcome to Journey Journal! </h1>
+            <h2> A place to start your vacation dreams! </h2>
+
+            <div className="head-content row align-center">
               <img className="logo" src="./images/travel-journey-transparent.png" alt="Journey Journal" />
               {/* slideshow container */}
-              <div className="slideshow-container">
-                {/* full-width slides and quotes */}
-                <div className="mySlides">
-                  <q> Journey Journal offers convenient trip planning with a one-stop solution for booking flights, hotels, and more. </q>
-                </div>
-                <div className="mySlides ">
-                  <q> Get competitive pricing and access to the best deals for flights, hotels, and travel services. </q>
-                </div>
-                <div className="mySlides">
-                  <q> Enjoy pesonalized recommendations based on your preferences and interests for a tailored travel experience. </q>
-                </div>
-                <div className="mySlides">
-                  <q> Seamlessly integrate all your travel needs, including bookings, rentails, and local attractions, within our app. </q>
-                </div>
-                <div className="mySlides">
-                  <q> Stay informed with real-time updates and 24/7 assistance for a stress-free and smooth travel experience </q>
-                </div>
-                {/* next and previous buttons */}
-                <a className="prev" onclick="plusSlides(-1)">❮</a>
-                <a className="next" onclick="plusSlides(1)">❯</a>
+              <div className="slide-wrap">
+                <SimpleImageSlider
+                  width={896}
+                  height={580}
+                  images={images}
+                  showBullets={true}
+                  showNavs={true}
+                  autoPlay={true}
+                  autoPlayDelay={3.5}
+                />
               </div>
-              {/* dots/bullets/indicators */}
-              <div className="dot-container">
-                <span className="dot" onclick="currentSlide(1)" />
-                <span className="dot" onclick="currentSlide(2)" />
-                <span className="dot" onclick="currentSlide(3)" />
-                <span className="dot" onclick="currentSlide(4)" />
-                <span className="dot" onclick="currentSlide(5)" />
-              </div>
-            </div>
-          </section>
-          <section>
-            <div className="scroll-container">
-              <img src="./images/review1.png" alt="Review 1" />
-              <img src="./images/review2.png" alt="Review 2" />
-              <img src="./images/review3.png" alt="Review 3" />
-              <img src="./images/review4.png" alt="Review 4" />
-              <img src="./images/review5.png" alt="Review 5" />
-              <img src="./images/review6.png" alt="Review 6" />
-              <img src="./images/review7.png" alt="Review 7" />
-              <img src="./images/review8.png" alt="Review 8" />
-              <img src="./images/review9.png" alt="Review 9" />
-              <img src="./images/review10.png" alt="Review 10" />
             </div>
           </section>
           <footer>

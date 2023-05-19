@@ -12,21 +12,8 @@ code {
     monospace;
 }
 
-
-/* login page */
-
-/* home page */
-
-/* * {
-  background-color: rgb(254, 245, 234);
-} */
-
-/* img{
-  max-width: 100%;
-} */
-
-
-.row, .column {
+.row,
+.column {
   display: flex;
 }
 
@@ -38,12 +25,12 @@ code {
   align-items: center;
 }
 
-
 /* nav bar*/
 .navbar {
   display: flex;
   justify-content: center;
-  /* background-color: white; */
+  background-color: white;
+  border-radius: 30px;
 }
 
 .navbar a {
@@ -55,6 +42,15 @@ code {
   font-size: 18px;
 }
 
+.navbar a.active {
+  color: black;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  border-radius: 30px;
+}
 
 /*footer*/
 .icon-bar {
@@ -64,7 +60,7 @@ code {
 }
 
 .icon-bar a {
-  flex: 1;    
+  flex: 1;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -89,7 +85,7 @@ code {
 section {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 20px ;
+  padding-bottom: 20px;
 }
 
 div.scroll-container {
@@ -118,13 +114,13 @@ h2 {
 }
 
 .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
 /* .active,
@@ -133,23 +129,14 @@ h2 {
 } */
 
 q {
-    font-style: italic;
-      font-size: 20px;
+  font-style: italic;
+  font-size: 20px;
 }
-
-
-.map {
-  width: 500px;
-  height: 500px;
-}
-
-
-
 
 /* dashboard styling for the map and searches*/
 
-body{
-  padding:20px;
+body {
+  padding: 20px;
   background-color: rgb(254, 245, 234);
 }
 
@@ -182,9 +169,8 @@ header {
   font-size: 12px;
   padding: auto;
   border: none;
-  border-bottom: 1px solid rgb(254, 245, 234);;
+  border-bottom: 1px solid rgb(254, 245, 234);
 }
-
 
 .autocomplete {
   position: relative;
@@ -205,7 +191,7 @@ header {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: rgb(254, 245, 234);;
+  background-color: rgb(254, 245, 234);
   border-bottom: 1px solid #d4d4d4;
 }
 .autocomplete-items div:hover {
@@ -215,7 +201,7 @@ header {
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
-  color: rgb(254, 245, 234);;
+  color: rgb(254, 245, 234);
 }
 
 .label {
@@ -223,7 +209,7 @@ header {
 }
 
 .button-is-small {
-  color: rgba(12, 47, 246, 0.885)
+  color: rgba(12, 47, 246, 0.885);
 }
 
 .title {
@@ -237,8 +223,68 @@ header {
     align-items: center;
   }
 
-  .head-content .slide-wrap > div, .head-content .slide-wrap > div > div {
+  .head-content .slide-wrap > div,
+  .head-content .slide-wrap > div > div {
     width: 600px !important;
     height: 400px !important;
   }
+}
+
+/* MAP CSS -MM */
+
+.map {
+  width: 100%;
+  height: 400px;
+}
+
+.mapContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* MAP FORM CSS -MM */
+.zipForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -400px;
+}
+
+.zipcode {
+  font-size: 25px;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.searchBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: pink;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.searchBox {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.searchBox:focus {
+  border-color: #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }

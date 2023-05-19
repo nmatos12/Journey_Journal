@@ -40,7 +40,7 @@ function Login(props) {
       {errorMessage && <p className="error">{errorMessage}</p>}
 
       <div className="imgcontainer">
-        <img src="./images/login-avatar.png" alt="Avatar" className="avatar" />
+        <img src="./images/login-avatar.png" alt="Avatar" className="avatar" width="200px" height="200px" />
       </div>
 
       <div className="container">
@@ -78,7 +78,3 @@ function Login(props) {
 }
 
 export default Login;
-
-
-
-

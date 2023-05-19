@@ -9,6 +9,8 @@ function Navbar() {
                 <NavLink to="/ourstory">Our Story</NavLink>
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/hotel">Hotels</NavLink>
+                <NavLink to="/vacation" activeClassName="active">Vacations</NavLink>
             </div>
         </header>
     )

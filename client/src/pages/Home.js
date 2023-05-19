@@ -63,7 +63,7 @@ const Home = (props) => {
           <section id="center" className="column align-center">
             <h1> Welcome to Journey Journal! </h1>
             <h2> A place to start your vacation dreams! </h2>
-
+            
             <div className="head-content row align-center">
               <img className="logo" src="./images/travel-journey-transparent.png" alt="Journey Journal" />
               {/* slideshow container */}

@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3333;
 const in_prod = process.env.PORT;
 
-// const api_routes = require('./routes/api_routes');
+const api_routes = require('./routes/api_routes');
 const auth_routes = require('./routes/auth_routes');
 
 const app = express();
@@ -26,7 +26,7 @@ app.use(session({
     cookie: { secure: process.env.PORT ? true : false }
 }));
 
-// app.use('/api', api_routes);
+app.use('/api', api_routes);
 app.use('/auth', auth_routes);
 
 if (in_prod) {

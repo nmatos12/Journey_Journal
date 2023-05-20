@@ -19,14 +19,14 @@ router.post('/register', async (req, res) => {
 // Login User
 router.post('/login', async (req, res) => {
     const user = await User.findOne({
-        username: req.body.username
+        email: req.body.email
     }).populate({
         path: 'vacations',
         populate: 'user'
     });
-    console.log(user)
+
     // If no user is found, stop and send an error message
-    if (!user) return res.status(402).send({ error: 'User with that email not found.' });
+    if (!user) return res.status(403).send({ error: 'User with that email not found.' });
 
     // If password does not match, stop and send an error message
     const valid_password = await user.validatePass(req.body.password);

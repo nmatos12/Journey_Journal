@@ -4,7 +4,7 @@ import { redirect } from "react-router-dom";
 
 function Login(props) {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");

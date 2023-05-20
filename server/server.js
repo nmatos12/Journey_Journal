@@ -4,7 +4,7 @@ const db = require('./config/connection');
 const session = require('express-session');
 const path = require('path');
 const PORT = process.env.PORT || 3333;
-const in_prod = process.env.PORT;
+const in_prod = process.env.NODE_ENV === 'production';
 
 const api_routes = require('./routes/api_routes');
 const auth_routes = require('./routes/auth_routes');
@@ -29,7 +29,7 @@ app.use(session({
 app.use('/api', api_routes);
 app.use('/auth', auth_routes);
 
-if (in_prod) {
+if (in_prod || PORT === 3333) {
     app.get('*', (req, res) => {
         res.sendFile(path.join(process.cwd(), '../client/build/index.html'));
     });

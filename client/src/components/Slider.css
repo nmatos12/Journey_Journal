@@ -1,0 +1,33 @@
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+}
+
+.slider-wrapper {
+  flex: 1;
+  display: flex;
+}
+
+.slide-image {
+  flex: 1;
+  background-position: center;
+  background-size: cover;
+  width: 60%;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination button {
+  background: none;
+  border: 1px solid #999;
+  color: #555;
+  border-radius: 5px;
+}
+
+.pagination button:first-child {
+  margin-right: 20px;
+}
